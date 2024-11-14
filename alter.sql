@@ -49,3 +49,35 @@ VALUES
 ('Isabella', 'Anderson', 15, 'A+', 'isabella.anderson@gmail.com', '2002-06-20', 'A+', 'Italy'),
 ('Mason', 'Thomas', 13, 'B', 'mason.thomas@gmail.com', '2004-02-18', 'AB-', 'Spain'),
 ('Mia', 'Jackson', 12, 'A-', 'mia.jackson@gmail.com', '2005-09-23', 'O+', 'Brazil');
+
+SELECT * from students;
+SELECT email, age, dob from students;
+SELECT email as student_email from students;
+SELECT * FROM students ORDER BY first_name ASC;
+SELECT DISTINCT country from students;
+SELECT DISTINCT blood_group from students;
+
+-- where data filter
+SELECT * FROM students 
+ WHERE country = 'USA'
+
+
+-- multiple condition
+SELECT * FROM students 
+ WHERE country = 'USA' AND email = 'emma.smith@gmail.com'
+
+-- multiple condition
+-- SELECT * FROM students 
+--  WHERE country = 'USA' OR country = 'UK'
+
+-- SELECT * FROM students 
+--  WHERE age >= 15
+
+
+-- SELECT upper(first_name), * FROM students
+
+-- scalar function
+SELECT concat(first_name, ' ', last_name) FROM students
+
+
+
