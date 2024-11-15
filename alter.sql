@@ -64,7 +64,7 @@ SELECT * FROM students
 
 -- multiple condition
 SELECT * FROM students 
- WHERE country = 'USA' AND email = 'emma.smith@gmail.com'
+ WHERE country = 'USA' AND email = 'emma.smith@gmail.com';
 
 -- multiple condition
 -- SELECT * FROM students 
@@ -76,8 +76,42 @@ SELECT * FROM students
 
 -- SELECT upper(first_name), * FROM students
 
--- scalar function
-SELECT concat(first_name, ' ', last_name) FROM students
+-- -- scalar function
+-- SELECT concat(first_name, ' ', last_name), * FROM students
 
+-- AGGREGATE
+-- SELECT avg(age) FROM students
+-- SELECT max(age) FROM students;
+-- SELECT min(age) FROM students;
+-- SELECT sum(age) FROM students;
+-- SELECT count(*) FROM students
+
+-- SELECT * FROM students
+-- WHERE country = 'USA' OR country = 'UK';
+
+SELECT * FROM students WHERE country IN('USA', 'UK');
+SELECT * FROM students WHERE country NOT IN('USA', 'UK');
+
+SELECT * FROM students WHERE dob BETWEEN '2000-01-01' and '2024-03-01' ORDER BY dob;
+SELECT * FROM students WHERE first_name LIKE '%on';
+SELECT * FROM students WHERE first_name LIKE '__a%';
+
+SELECT * FROM students LIMIT 5;
+SELECT * FROM students LIMIT 5 OFFSET 4;
+-- pagination
+
+SELECT * FROM students LIMIT 3 OFFSET 3 * 0;
+SELECT * FROM students LIMIT 3 OFFSET 3 * 1;
+SELECT * FROM students LIMIT 3 OFFSET 3 * 2;
+SELECT * FROM students LIMIT 3 OFFSET 3 * 3;
+
+DELETE FROM students
+ WHERE grade = 'B-';
+
+SELECT * FROM students
+
+
+UPDATE students
+set email = 'default@gmail.com', age = 30 WHERE student_id = 3;
 
 
