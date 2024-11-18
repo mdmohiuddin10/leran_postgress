@@ -284,3 +284,47 @@ SELECT country, avg(age) FROM students
 
 SELECT extract(year FROM dob) as birth_year, count(*) FROM students
  GROUP BY birth_year;
+
+ CREATE TABLE "user" (
+    id SERIAL PRIMARY KEY,
+    user_name VARCHAR(25) NOT NULL
+ );
+
+ CREATE TABLE post (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    user_id INTEGER REFERENCES "user"(id) ON DELETE CASCADE
+ );
+
+ INSERT INTO "user" (user_name) VALUES
+('John Doe'),
+('Jane Smith'),
+('Michael Johnson'),
+('Emily Davis'),
+('William Brown'),
+('Olivia Wilson'),
+('James Taylor'),
+('Sophia Martinez'),
+('Benjamin Anderson'),
+('Charlotte Thomas');
+
+SELECT * from "user";
+
+INSERT INTO post (title, user_id) VALUES
+('My First Post', 1),
+('Exploring SQL', 2),
+('Understanding Joins', 3),
+('Learning PostgreSQL', 4),
+('Database Relationships', 5),
+('Advanced SQL Queries', 6),
+('Optimizing Queries', 7),
+('SQL Best Practices', 8),
+('PostgreSQL Features', 9),
+('Mastering SQL', 10);
+
+
+SELECT * FROM post;
+
+-- delete user  --- On delete set null , ON DELETE CASCADE, on delete set default
+
+
