@@ -276,3 +276,11 @@ SELECT CURRENT_DATE - INTERVAL '1 year';
 SELECT *, age (CURRENT_DATE, dob) FROM students;
 
 SELECT country, count(*) FROM students GROUP BY country;
+
+SELECT country, avg(age) FROM students 
+ GROUP BY country
+  HAVING avg(age) >= 15;
+
+
+SELECT extract(year FROM dob) as birth_year, count(*) FROM students
+ GROUP BY birth_year;
